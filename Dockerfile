@@ -1,4 +1,4 @@
-FROM bitnami/python:3.9-prod
+FROM bitnami/python:3.8-prod
 
 LABEL maintainer="Eric Lee <ericstone.dev@gmail.com>"
 
