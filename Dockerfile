@@ -1,4 +1,4 @@
-FROM bitnami/python:3.8-prod
+FROM bitnami/python:3.9-prod
 
 LABEL maintainer="Eric Lee <ericstone.dev@gmail.com>"
 
@@ -11,5 +11,8 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
     poetry config virtualenvs.create false
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
+
+# install dependencies
+RUN install_packages git
 
 ENV PYTHONPATH=/app
