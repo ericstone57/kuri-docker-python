@@ -2,4 +2,6 @@
 
 Based on [bitnami python image](https://github.com/bitnami/bitnami-docker-python)
 
-- add poetry (https://python-poetry.org/)
+- Python 3.9
+- poetry (https://python-poetry.org/)
+- git
