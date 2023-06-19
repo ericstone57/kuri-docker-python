@@ -4,15 +4,14 @@ LABEL maintainer="Eric Lee <ericstone.dev@gmail.com>"
 
 WORKDIR /app/
 
+# install dependencies
+RUN install_packages git
+
 # Install Poetry
-RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | POETRY_HOME=/opt/poetry python && \
-    cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
-    poetry config virtualenvs.create false
+RUN curl -sSL https://install.python-poetry.org | python3 -
+RUN echo "export PATH=$PATH:/root/.local/bin" >> ~/.bashrc
 
 RUN ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
-# install dependencies
-RUN install_packages git
 
 ENV PYTHONPATH=/app
